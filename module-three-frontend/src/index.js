@@ -15,7 +15,7 @@ userForm.addEventListener("submit", (event) => {
     .then(resp => resp.json())
     .then(renderGame)
 })
-
+   
 
 function renderGame(){
     const body = document.querySelector("body")
@@ -68,10 +68,25 @@ function gameAction() {
         if(e.target.id === "game-submission"){
             e.preventDefault()
             let answer = document.querySelector("#user-input").value
-            let state = document.querySelector("#user-input").parentElement
+            let stateLi = document.querySelector('#game-question').children[document.querySelector('#game-question').children.length - 1]
+            let state = stateLi.innerText
+            let answerBool = checkAnswer(state, answer)
+            if (answerBool){
+                stateLi.style.color = "Green";
+                document.querySelector("#user-input").value = ""
+                populateQuestion()
+                incrementPoints()
+            } else {
+                stateLi.style.color = "red";
+                document.querySelector("#user-input").value = ""
+                populateQuestion()
+                decrementPoints()
+            }
         }
     })
 }
+
+const states = []
 
 function populateQuestion(){
     fetch('http://localhost:3000/questions')
@@ -79,8 +94,30 @@ function populateQuestion(){
         return response.json()
     })
     .then(function(question){
-        document.querySelector("#game-question").insertAdjacentHTML("afterbegin",
+        document.querySelector("#game-question").insertAdjacentHTML("beforeEnd",
         `<li data-id = ${question.id}>${question.question}</li>
         `)
+        states.push(question)
     })
+}
+
+function checkAnswer(state, answer){
+    let question = states.find(function(ele){
+        if (ele.question === state) {
+            return ele
+        }
+    })
+    return question.answer === answer
+}
+
+function incrementPoints(){
+    const score = document.querySelector("#game-score > span")
+    let newScore = parseInt(score.innerText) + 10
+    score.innerText = newScore + " Points"
+}
+
+function decrementPoints(){
+    const score = document.querySelector("#game-score > span")
+    let newScore = parseInt(score.innerText) - 10
+    score.innerText = newScore + " Points"
 }
