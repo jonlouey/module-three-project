@@ -35,7 +35,7 @@ function renderGame(){
             <input type="submit" id="user-submit">
             <input type="submit" id="game-start" value="Clear">
         </form>
-        <!-- <button id="game-start">Start</button> -->
+        <button id="game-start">Start</button>
     </div>
     </div>
     <div id="game-sidebar">
@@ -73,56 +73,45 @@ function gameAction() {
         if(e.target.id === "game-submission"){
             e.preventDefault()
             let answer = document.querySelector("#user-input").value
-            let stateLi = document.querySelector('#game-question').children[document.querySelector('#game-question').children.length - 1]
-            let state = stateLi.innerText
-            let answerBool = checkAnswer(state, answer)
-            if (answerBool){
-                stateLi.style.color = "Green";
+            if (states[answer] !== undefined){
+                let stateli = document.querySelector(`[data-id="${states[answer][1]}"]`)
+                stateli.remove()
                 document.querySelector("#user-input").value = ""
-                populateQuestion()
                 incrementPoints()
             } else {
-                stateLi.style.color = "red";
+                alert("Your answer is not a capital.")
                 document.querySelector("#user-input").value = ""
-                populateQuestion()
-                decrementPoints()
-            }
+            } 
         }
     })
 }
 
-const states = []
+const states = {}
 
-function populateQuestion(){
+function populateStates(){
     fetch('http://localhost:3000/questions')
     .then(function(response){
         return response.json()
     })
-    .then(function(question){
-        document.querySelector("#game-question").insertAdjacentHTML("beforeEnd",
-        `<li data-id = ${question.id}>${question.question}</li>
-        `)
-        states.push(question)
+    .then(function(questions){
+        questions.forEach(function(question){
+            states[question.answer] = [question.question, question.id]
+        })
     })
 }
 
-function checkAnswer(state, answer){
-    let question = states.find(function(ele){
-        if (ele.question === state) {
-            return ele
-        }
-    })
-    return question.answer === answer
+populateStates()
+
+function populateQuestion(){
+    for (let capital in states) {
+        document.querySelector("#game-question").insertAdjacentHTML("beforeEnd",
+        `<li data-id=${states[capital][1]}>${states[capital][0]}</li>
+        `)
+      }
 }
 
 function incrementPoints(){
-    const score = document.querySelector("#game-score > span")
-    let newScore = parseInt(score.innerText) + 10
-    score.innerText = newScore + " Points"
-}
-
-function decrementPoints(){
-    const score = document.querySelector("#game-score > span")
-    let newScore = parseInt(score.innerText) - 10
+    const score = document.querySelector("#points")
+    let newScore = parseInt(score.innerText) + 1
     score.innerText = newScore + " Points"
 }

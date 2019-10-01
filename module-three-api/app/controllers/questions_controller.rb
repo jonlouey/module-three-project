@@ -1,8 +1,7 @@
 class QuestionsController < ApplicationController
     def index
-        questions = Question.all.map{|ele| ele}
-        question = questions.sample
-        render json: question, status: "200"
+        questions = Question.all
+        render json: questions, status: "200"
     end 
 
     def show 
