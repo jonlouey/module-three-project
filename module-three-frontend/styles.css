@@ -1,0 +1,74 @@
+html {
+    background: url("chalkboard.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+h1 {
+  text-align: center;
+  color: white;
+  }
+
+#game-title { 
+  padding-top: 50px;
+  font-style: italic;
+}
+
+#game-sidebar {
+  width: 45%;
+  float:left
+}
+
+#game-card {
+  width: 55%;
+  float: left;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+  font-style: italic;
+}
+
+#game-question {
+  height: 27em;
+}
+
+#game-submission {
+  text-align: center;
+}
+
+#game-timer {
+  height: 6em;
+  color: white;
+  padding-top: 18.800px;
+  text-align: center;
+  font: 22px italic;
+  text-decoration: underline
+}
+
+#game-score {
+  height: 8em;
+  text-align: center;
+}
+
+#score-title {
+  color: white;
+  font: 22px italic;
+  text-decoration: underline
+}
+
+#points {
+  color: white;
+  font: 22px italic;
+}
+
+#game-highscore {
+  height: 16em;
+  color: white;
+  text-align: center;
+  font: 22px italic;
+  text-decoration: underline
+}

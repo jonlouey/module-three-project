@@ -23,33 +23,38 @@ function renderGame(){
     const gameContainer = document.createElement("div")
     gameContainer.className = "game-container"
     const string = `
-        <div id="game-title">
-        <h1>Do you think you are smart?</h1>
-        </div>
-        <div id="game-card">
-        <div id="game-question-title"><h3>What is capital of...</h3></div>   
-        <div id="game-question"></div>
-        <div id="game-form">
-            <form id="game-submission">
-                <input type="text" id="user-input">
-                <input type="submit" id="user-submit">
-            </form>
-            <button id="game-start">Start</button>
-        </div>
-        </div>
-        <div id="game-sidebar">
-        <div id="game-timer">
-            timer
-        </div>
+    <div id="game-title">
+    <h1>Do you think you are smart?</h1>
+    </div>
+    <div id="game-card">
+    <div id="game-question-title"><h3>What is capital of...</h3></div>   
+    <div id="game-question"></div>
+    <div id="game-form">
+        <form id="game-submission">
+            <input type="text" id="user-input">
+            <input type="submit" id="user-submit">
+            <input type="submit" id="game-start" value="Clear">
+        </form>
+        <!-- <button id="game-start">Start</button> -->
+    </div>
+    </div>
+    <div id="game-sidebar">
+    <div id="game-timer">
+        Timer
+    </div>
 
-        <div id="game-score">
-            <span>0 Points</span>
-        </div>
+    <div id="game-score">
+        <span id=score-title>Score</span>
+        <br>
+        <br>
+        <br>
+        <span id=points>0 Points</span>
+    </div>
 
-        <div id="game-highscore">
-            high score
-        </div>
-        </div>
+    <div id="game-highscore">
+        High Scores
+    </div>
+    </div>
     `
     gameContainer.innerHTML = string
     body.append(gameContainer)
