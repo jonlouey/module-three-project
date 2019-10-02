@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,39 @@
     <link rel="stylesheet" href="styles.css">
     <script src="./src/index.js" defer></script>
 </head>
+
 <body>
-    <div id=landing-title>
-    <h1>
-      <span>S</span> 
-      <span>n</span> 
-      <span>i</span> 
-      <span>c</span> 
-      <span>k</span> 
-      <span>e</span> 
-      <span>r</span>    
-    </h1>
-    </div> 
-    <div id=landing-form>
-        <form id="user-login">
-        <input id="user-name" type="text" name="name" placeholder="NAME">
-        <input type="submit" value="Submit">
-        </form> 
-    </div> 
+    <div class='user-start-container'>
+        <div class='user-start'>
+            <div>
+                <h1 id="user-title">
+                    <span>S</span>
+                    <span>n</span>
+                    <span>i</span>
+                    <span>c</span>
+                    <span>k</span>
+                    <span>e</span>
+                    <span>r</span>
+                </h1>
+            </div>
+            <div id="form">
+                <form id="user-login">
+                    <input id="user-name" type="text" name="name" placeholder="NAME">
+                    <input id="user-name-submit" type="submit" value="Submit">
+                </form>
+            </div>
+            <button id="myBtn">Info about our project</button>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Information about out project</p>
+        </div>
+    </div>
 </body>
+
 </html>

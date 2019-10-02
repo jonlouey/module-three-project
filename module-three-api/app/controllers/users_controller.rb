@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
     def index
-        users = User.all
-        render json: users, status: "200"
+        user = User.last
+        render json: user, status: "200"
     end
 
     def show 
