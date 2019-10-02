@@ -17,12 +17,12 @@ h1 {
 }
 
 #game-sidebar {
-  width: 45%;
+  width: 30%;
   float:left
 }
 
 #game-card {
-  width: 55%;
+  width: 70%;
   float: left;
 }
 
@@ -34,7 +34,28 @@ h3 {
 
 #game-question {
   height: 27em;
+  float: left;
+  width: 25%;
 }
+
+#game-question-2 {
+    height: 27em;
+    float: left;
+    width: 25%;
+}
+
+#game-question-3 {
+    height: 27em;
+    float: left;
+    width: 25%;
+}
+
+#game-question-4 {
+    height: 27em;
+    float: left;
+    width: 25%;
+}
+
 
 #game-submission {
   text-align: center;

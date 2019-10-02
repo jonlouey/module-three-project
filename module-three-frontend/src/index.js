@@ -29,13 +29,14 @@ function renderGame(){
     <div id="game-card">
     <div id="game-question-title"><h3>What is capital of...</h3></div>   
     <div id="game-question"></div>
+    <div id="game-question-2"></div>
+    <div id="game-question-3"></div>
+    <div id="game-question-4"></div>
     <div id="game-form">
         <form id="game-submission">
             <input type="text" id="user-input">
             <input type="submit" id="user-submit">
-            <input type="submit" id="game-start" value="Clear">
         </form>
-        <button id="game-start">Start</button>
     </div>
     </div>
     <div id="game-sidebar">
@@ -59,6 +60,7 @@ function renderGame(){
     gameContainer.innerHTML = string
     body.append(gameContainer)
     gameAction()
+    populateQuestion()
 }
 
 function gameAction() {
@@ -75,7 +77,7 @@ function gameAction() {
             let answer = document.querySelector("#user-input").value
             if (states[answer] !== undefined){
                 let stateli = document.querySelector(`[data-id="${states[answer][1]}"]`)
-                stateli.remove()
+                stateli.innerText = ""
                 document.querySelector("#user-input").value = ""
                 incrementPoints()
             } else {
@@ -102,13 +104,44 @@ function populateStates(){
 
 populateStates()
 
+// function populateQuestion(){
+//     for (let capital in states) {
+//         document.querySelector("#game-question").insertAdjacentHTML("beforeEnd",
+//         `<li data-id=${states[capital][1]}>${states[capital][0]}</li>
+//         `)
+//       }
+// }
+
 function populateQuestion(){
-    for (let capital in states) {
-        document.querySelector("#game-question").insertAdjacentHTML("beforeEnd",
-        `<li data-id=${states[capital][1]}>${states[capital][0]}</li>
+var keys = Object.keys(states);
+
+for (var i=1; i< 13; i++) { 
+    document.querySelector("#game-question").insertAdjacentHTML("beforeEnd",
+        `<ul data-id=${states[keys[i]][1]}>${states[keys[i]][0]}</ul>
         `)
-      }
-}
+ }
+
+ for (var i=14; i< 26; i++) { 
+    document.querySelector("#game-question-2").insertAdjacentHTML("beforeEnd",
+        `<ul data-id=${states[keys[i]][1]}>${states[keys[i]][0]}</ul>
+        `)
+ }
+
+ for (var i=27; i< 39; i++) { 
+    document.querySelector("#game-question-3").insertAdjacentHTML("beforeEnd",
+        `<ul data-id=${states[keys[i]][1]}>${states[keys[i]][0]}</ul>
+        `)
+ }
+
+ for (var i=40; i< 50; i++) { 
+    document.querySelector("#game-question-4").insertAdjacentHTML("beforeEnd",
+        `<ul data-id=${states[keys[i]][1]}>${states[keys[i]][0]}</ul>
+        `)
+ }
+
+
+}   
+
 
 function incrementPoints(){
     const score = document.querySelector("#points")
