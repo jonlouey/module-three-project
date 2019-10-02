@@ -8,7 +8,7 @@ class GamesController < ApplicationController
             }
             obj
         end
-        render json: games, status: "200"
+        render json: games.slice(0, 3), status: "200"
     end
 
     def create

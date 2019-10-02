@@ -36,7 +36,8 @@ function renderGame(){
         </form>
         <button id="game-start">Start</button>
     </div>
-    <div id="game-instructions"><p>Instructions: List all of the state capitals before the timer runs out. The timer will start after you submit the first capital. If you submit a correct capital, the state will be removed from the list. You do not need to list the capitals in order.</p></div>
+    <div id="game-instructions">
+    <p>Instructions: List all of the state capitals before the timer runs out. The timer will start after you submit the first capital. If you submit a correct capital, the state will be removed from the list. You do not need to list the capitals in order.</p></div>
     </div>
     <div id="game-sidebar">
     <div id="game-timer">
@@ -62,7 +63,25 @@ function renderGame(){
     body.append(gameContainer)
     gameAction()
     populateQuestion()
+    populateHs()
 }
+
+function populateHs(){
+    fetch('http://localhost:3000/games')
+    .then(resp => resp.json())
+    .then(function(games){
+        addToHs(games)
+    })
+}
+ function addToHs(arr){
+    const hsCont = document.querySelector("#game-highscore")
+    arr.forEach(function(element){
+        let ulList = `<ul>${element.name}: ${element.score}</ul>`
+        hsCont.insertAdjacentHTML('beforeend', ulList)
+    })
+ }
+
+
 
 function gameAction() {
     const gameForm = document.querySelector("#game-form")
