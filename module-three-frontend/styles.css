@@ -6,9 +6,20 @@ html {
     background-size: cover;
   }
 
+#landing-title { 
+    width: 100%;
+    margin: auto;
+    padding-top: 20%;
+}
+
+#landing-form { 
+  text-align: center;
+}
+
 h1 {
   text-align: center;
   color: white;
+  font-size: 2em;
   }
 
 #game-title { 
@@ -17,8 +28,9 @@ h1 {
 }
 
 #game-sidebar {
-  width: 30%;
-  float:left
+  width: 15%;
+  float:right;
+  padding-right: 15%
 }
 
 #game-card {
@@ -26,19 +38,28 @@ h1 {
   float: left;
 }
 
+
 h3 {
   text-align: center;
   color: white;
   font-style: italic;
+  font-size: 1.85em;
+
 }
 
 #game-question {
-  height: 27em;
+  height: 20em;
   float: left;
-  width: 25%;
+  width: 100%;
+  margin: auto;
+  padding-left: 5%;
 }
 
-#game-question-2 {
+#game-form {
+  text-align: center;
+}
+
+/* #game-question-2 {
     height: 27em;
     float: left;
     width: 25%;
@@ -54,20 +75,14 @@ h3 {
     height: 27em;
     float: left;
     width: 25%;
-}
-
-
-#game-submission {
-  text-align: center;
-}
+} */
 
 #game-timer {
   height: 6em;
   color: white;
-  padding-top: 18.800px;
   text-align: center;
-  font: 22px italic;
-  text-decoration: underline
+  text-decoration: underline;
+  padding-top: 1.5em; 
 }
 
 #game-score {
@@ -77,19 +92,52 @@ h3 {
 
 #score-title {
   color: white;
-  font: 22px italic;
   text-decoration: underline
+
 }
+
+#game-instructions {
+  color: white;
+  padding-left: 17%;
+  padding-top: 5%;
+}
+
 
 #points {
   color: white;
   font: 22px italic;
+
 }
 
 #game-highscore {
   height: 16em;
   color: white;
   text-align: center;
-  font: 22px italic;
   text-decoration: underline
+
+}
+
+/* ul {
+  -moz-column-count: 5;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 5;
+  -webkit-column-gap: 20px;
+  column-count: 5;
+  column-gap: 20px;
+} */
+
+ul {
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  padding-left: 12%;
+  align-content: space-evenly;
+  white-space: nowrap;
+}
+
+li {
+  list-style-type: none;
+  color: white;
+  padding-right: 4em;
+  padding-top: .5em;
 }
