@@ -251,9 +251,6 @@ function currentUser() {
 
 
 
-
-
-
 modal()
 function modal() {
     // Get the modal
