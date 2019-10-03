@@ -29,13 +29,15 @@ h1 {
 
 #game-sidebar {
   width: 15%;
-  float:right;
-  padding-right: 15%
+  float:left;
+  padding-right: 15%;
+  position: relative
 }
 
 #game-card {
   width: 70%;
   float: left;
+  min-width: 860px;
 }
 
 

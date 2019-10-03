@@ -43,7 +43,7 @@ function renderGame(){
     <div id="game-timer">
                 Time Left
                 <br>
-                <span id="timer">15 seconds<span>
+                <span id="timer">10 seconds<span>
     </div>
 
     <div id="game-score">
@@ -94,7 +94,7 @@ function gameAction() {
             e.target.innerText = "Start"
             let timeSpan = document.querySelector('#timer');
             timeSpan.innerText = "60 seconds"
-            document.querySelector("#game-question").innerText = ""
+            document.querySelector("#game-question-ul").innerText = ""
             populateQuestion()
             clearInterval(time)
         }
