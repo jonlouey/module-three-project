@@ -4,7 +4,7 @@ userForm.addEventListener("submit", (event) => {
     event.preventDefault();
     let userName = userForm.querySelector("#user-name").value
     let userInfo = {name: userName};
-    if (userName != ""){
+    if (userName !== ""){
         fetch(USER_URL, {
             method: "POST",
             headers:{
@@ -19,8 +19,6 @@ userForm.addEventListener("submit", (event) => {
     else{
         alert("Please input your name.")
     }
-
-
 
 })
    
@@ -50,7 +48,7 @@ function renderGame(){
     <div id="game-sidebar">
     <div id="game-timer">
                 <h3>Time Left</h3>
-                <span class="metric" id="timer">2 seconds<span>
+                <span class="metric" id="timer">5 seconds<span>
     </div>
 
     <div id="game-score">
@@ -69,6 +67,12 @@ function renderGame(){
     gameAction()
     populateQuestion()
     populateHs()
+    userText()
+}
+
+function userText(){
+    let userInput = document.querySelector('#user-input')
+    if(userInput.disabled) { userInput.placeholder = "Press Start to Play" }
 }
 
 function populateHs(){
@@ -94,6 +98,7 @@ function gameAction() {
         if (e.target.innerText === "Start") {
             document.querySelector("#user-input").disabled = false
             document.querySelector("#user-submit").disabled = false
+            document.querySelector('#user-input').placeholder = "Time to Play"
             time = setInterval(timer, 1000)
             gameOver()
             e.target.innerText = "Reset"
@@ -103,6 +108,7 @@ function gameAction() {
             timeSpan.innerText = "60 seconds"
             document.querySelector("#game-question-ul").innerText = ""
             document.querySelector("#points").innerText= "0 Points"
+            changeButtons()
             populateQuestion()
             clearInterval(time)
         }
