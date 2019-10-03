@@ -6,12 +6,6 @@ body {
     background-size: cover;
   }
 
-#landing-title { 
-    width: 100%;
-    margin: auto;
-    padding-top: 20%;
-}
-
 #landing-form { 
   text-align: center;
 }
@@ -21,6 +15,10 @@ h1 {
   color: white;
   font-size: 2em;
   }
+
+p {
+    font-size: 1.05em;
+}
 
 #game-title { 
   padding-top: 50px;
@@ -81,7 +79,7 @@ h3 {
 #game-instructions {
   color: white;
   padding-left: 17%;
-  padding-top: 5%;
+  padding-top: 2%;
 }
 
 
@@ -138,6 +136,7 @@ h3 {
     margin-block-start: 0.05em;
     margin-block-end: 0.05em;
     color: white;
+    padding-top: 50%
 }
 
 #user-name{
@@ -191,7 +190,7 @@ h3 {
 }
 
 #user-input{
-  width: 70%;
-  line-height: 3em;
+  width: 40%;
+  line-height: 1.5em;
   font-size: x-large;
 }

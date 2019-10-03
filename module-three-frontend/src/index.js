@@ -4,16 +4,24 @@ userForm.addEventListener("submit", (event) => {
     event.preventDefault();
     let userName = userForm.querySelector("#user-name").value
     let userInfo = {name: userName};
-    fetch(USER_URL, {
-        method: "POST",
-        headers:{
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(userInfo)
-    })
-    .then(resp => resp.json())
-    .then(renderGame)
+    if (userName != ""){
+        fetch(USER_URL, {
+            method: "POST",
+            headers:{
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then(resp => resp.json())
+        .then(renderGame)
+    }
+    else{
+        alert("Please input your name.")
+    }
+
+
+
 })
    
 
