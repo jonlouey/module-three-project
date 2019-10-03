@@ -50,7 +50,7 @@ function renderGame(){
     <div id="game-sidebar">
     <div id="game-timer">
                 <h3>Time Left</h3>
-                <span class="metric" id="timer">10 seconds<span>
+                <span class="metric" id="timer">2 seconds<span>
     </div>
 
     <div id="game-score">
@@ -130,6 +130,7 @@ function gameOver() {
         changeButtons()
         postInfo()
         clearInterval(time)
+        renderGame()
     }
     // } else if (questionLis.length === 0 && document.querySelector('#timer').innerText !== "0 seconds") {
     //     changeButtons()
