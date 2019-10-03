@@ -43,7 +43,7 @@ function renderGame(){
         <button id="game-start">Start</button>
     </div>
     <div id="game-instructions">
-    <p>Instructions: List all of the state capitals before the timer runs out. The timer will start after you submit the first capital. If you submit a correct capital, the state will be removed from the list. You do not need to list the capitals in order.</p></div>
+    <p>Instructions: List all of the state capitals before the timer runs out. The timer will start after you press the start button. If you submit a correct capital, the state will be removed from the list. You do not need to list the capitals in order.</p></div>
     </div>
     <div id="game-sidebar">
     <div id="game-timer">
@@ -83,19 +83,26 @@ function populateHs(){
     })
 }
  function addToHs(arr){
-    const hsCont = document.querySelector("#game-highscore > ol")
+    let hsCont = document.querySelector("#game-highscore > ol")
+    hsCont.innerHTML = ""
     arr.forEach(function(element){
         let ulList = `<li>${element.name}: ${element.score}</li>`
         hsCont.insertAdjacentHTML('beforeend', ulList)
     })
  }
 
+ function addCurrentHS(user){
+    let hsCont = document.querySelector("#game-highscore > ol");
+    let score = parseInt(document.querySelector("#points"));
+    let ulList = `<li>${user}: ${score}</li>`
+    hsCont.insertAdjacentHTML('beforeend', ulList)
+ }
 
 
 function gameAction() {
     const gameForm = document.querySelector("#game-form")
     gameForm.addEventListener("click", function (e) {
-        if (e.target.innerText === "Start") {
+        if (e.target === document.querySelector("#game-start")) {
             document.querySelector("#user-input").disabled = false
             document.querySelector("#user-submit").disabled = false
             document.querySelector('#user-input').placeholder = "Time to Play"
@@ -106,12 +113,12 @@ function gameAction() {
             e.target.innerText = "Start"
             let timeSpan = document.querySelector('#timer');
             timeSpan.innerText = "60 seconds"
-            document.querySelector("#game-question-ul").innerText = ""
+            // document.querySelector("#game-question-ul").innerText = ""
             document.querySelector("#points").innerText= "0 Points"
             changeButtons()
             populateQuestion()
             clearInterval(time)
-        }
+        } 
     })
     document.querySelector('#game-submission').addEventListener("submit", function (e) {
         if (e.target.id === "game-submission") {
@@ -133,9 +140,12 @@ function gameAction() {
 function gameOver() {
     const questionLis = document.querySelector("#game-question").children
     if (questionLis.length === 0 || document.querySelector('#timer').innerText === "0 seconds") {
+        let currentScore = parseInt(document.querySelector("#points").innerText)
         changeButtons()
         postInfo()
+        populateHs()
         clearInterval(time)
+        alert(`Your Current Score is ${currentScore}`)
         renderGame()
     }
     // } else if (questionLis.length === 0 && document.querySelector('#timer').innerText !== "0 seconds") {

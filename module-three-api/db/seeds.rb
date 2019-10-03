@@ -17,7 +17,7 @@ states = [
 	{ answer: 'Denver', question: 'Colorado', category: Category.first },
 	{ answer: 'Hartford', question: 'Connecticut', category: Category.first },
 	{ answer: 'Dover', question: 'Delaware', category: Category.first },
-	{ answer: 'Tallahassee', question: 'Floria', category: Category.first },
+	{ answer: 'Tallahassee', question: 'Florida', category: Category.first },
 	{ answer: 'Atlanta', question: 'Georgia', category: Category.first },
 	{ answer: 'Honolulu', question: 'Hawaii', category: Category.first },
 	{ answer: 'Boise', question: 'Idaho', category: Category.first },
