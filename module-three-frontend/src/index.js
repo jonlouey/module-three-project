@@ -39,7 +39,7 @@ function renderGame(){
     <div id="game-question"><ul id="game-question-ul"></ul></div>
     <div id="game-form">
         <form id="game-submission">
-            <input type="text" id="user-input">
+            <input type="text" id="user-input" disabled>
             <input type="submit" id="user-submit">
         </form>
         <button id="game-start">Start</button>
@@ -92,6 +92,7 @@ function gameAction() {
     const gameForm = document.querySelector("#game-form")
     gameForm.addEventListener("click", function (e) {
         if (e.target.innerText === "Start") {
+            document.querySelector("#user-input").disabled = false
             document.querySelector("#user-submit").disabled = false
             time = setInterval(timer, 1000)
             gameOver()
