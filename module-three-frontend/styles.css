@@ -46,7 +46,7 @@ h3 {
   color: white;
   font-style: italic;
   font-size: 1.85em;
-
+  text-decoration: underline;
 }
 
 #game-question {
@@ -61,29 +61,10 @@ h3 {
   text-align: center;
 }
 
-/* #game-question-2 {
-    height: 27em;
-    float: left;
-    width: 25%;
-}
-
-#game-question-3 {
-    height: 27em;
-    float: left;
-    width: 25%;
-}
-
-#game-question-4 {
-    height: 27em;
-    float: left;
-    width: 25%;
-} */
-
 #game-timer {
-  height: 6em;
+  height: 8em;
   color: white;
   text-align: center;
-  text-decoration: underline;
   padding-top: 1.5em; 
 }
 
@@ -92,10 +73,9 @@ h3 {
   text-align: center;
 }
 
-#score-title {
-  color: white;
-  text-decoration: underline
-
+#game-highscore {
+  height: 8em;
+  text-align: center;
 }
 
 #game-instructions {
@@ -105,30 +85,12 @@ h3 {
 }
 
 
-#points {
+.metric {
   color: white;
   font: 22px italic;
-
 }
 
-#game-highscore {
-  height: 16em;
-  color: white;
-  text-align: center;
-  text-decoration: underline
-
-}
-
-/* ul {
-  -moz-column-count: 5;
-  -moz-column-gap: 20px;
-  -webkit-column-count: 5;
-  -webkit-column-gap: 20px;
-  column-count: 5;
-  column-gap: 20px;
-} */
-
-ul {
+#game-question-ul {
   max-width: 400px;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
@@ -137,15 +99,20 @@ ul {
   white-space: nowrap;
 }
 
-li {
+#game-question-ul > li {
   list-style-type: none;
   color: white;
   padding-right: 4em;
   padding-top: .5em;
 }
 
+#game-highscore > ol > li {
+  list-style-type: none;
+}
 
-
+#game-highscore > ol {
+  padding-left: 0%;
+}
 
 .user-start-container{
     margin: 0;

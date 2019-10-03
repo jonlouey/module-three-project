@@ -41,21 +41,18 @@ function renderGame(){
     </div>
     <div id="game-sidebar">
     <div id="game-timer">
-                Time Left
-                <br>
-                <span id="timer">10 seconds<span>
+                <h3>Time Left</h3>
+                <span class="metric" id="timer">10 seconds<span>
     </div>
 
     <div id="game-score">
                 <span id=score-title><h3>Score</h3></span>
-                <br>
-                <br>
-                <br>
-                <span id=points>0 Points</span>
+                <span class="metric" id="points">0 Points</span>
     </div>
 
     <div id="game-highscore">
         <h3>High Scores</h3>
+        <ol class="metric"></ol>
     </div>
     </div>  
     `
@@ -74,9 +71,9 @@ function populateHs(){
     })
 }
  function addToHs(arr){
-    const hsCont = document.querySelector("#game-highscore")
+    const hsCont = document.querySelector("#game-highscore > ol")
     arr.forEach(function(element){
-        let ulList = `<ul>${element.name}: ${element.score}</ul>`
+        let ulList = `<li>${element.name}: ${element.score}</li>`
         hsCont.insertAdjacentHTML('beforeend', ulList)
     })
  }
@@ -87,6 +84,7 @@ function gameAction() {
     const gameForm = document.querySelector("#game-form")
     gameForm.addEventListener("click", function (e) {
         if (e.target.innerText === "Start") {
+            document.querySelector("#user-submit").disabled = false
             time = setInterval(timer, 1000)
             gameOver()
             e.target.innerText = "Reset"
@@ -95,6 +93,7 @@ function gameAction() {
             let timeSpan = document.querySelector('#timer');
             timeSpan.innerText = "60 seconds"
             document.querySelector("#game-question-ul").innerText = ""
+            document.querySelector("#points").innerText= "0 Points"
             populateQuestion()
             clearInterval(time)
         }
