@@ -30,7 +30,10 @@ function renderGame(){
     gameContainer.className = "game-container"
     const string = `
     <div id="game-title">
-    <h1>So, you think you are smart?</h1>
+    <h1 id="page-title">So, you think you are smart?</h1>
+    <div id=game-out-container>
+    <button id="game-out" type="button" onClick="window.location.reload();">End Game</button>
+    </div>
     </div>
     <div id="game-card">
     <div id="game-question-title"><h3>What is the capital of...</h3></div> 
@@ -48,7 +51,7 @@ function renderGame(){
     <div id="game-sidebar">
     <div id="game-timer">
                 <h3>Time Left</h3>
-                <span class="metric" id="timer">5 seconds<span>
+                <span class="metric" id="timer">60 seconds<span>
     </div>
 
     <div id="game-score">
@@ -102,18 +105,19 @@ function populateHs(){
 function gameAction() {
     const gameForm = document.querySelector("#game-form")
     gameForm.addEventListener("click", function (e) {
-        if (e.target === document.querySelector("#game-start")) {
+        if (e.target === document.querySelector("#game-start") && e.target.innerText === "Start") {
             document.querySelector("#user-input").disabled = false
             document.querySelector("#user-submit").disabled = false
             document.querySelector('#user-input').placeholder = "Time to Play"
             time = setInterval(timer, 1000)
             gameOver()
             e.target.innerText = "Reset"
-        } else if (e.target.innerText === "Reset") {
+        } else if (e.target === document.querySelector("#game-start") && e.target.innerText === "Reset") {
             e.target.innerText = "Start"
+            document.querySelector("#user-input").disabled = true
             let timeSpan = document.querySelector('#timer');
             timeSpan.innerText = "60 seconds"
-            // document.querySelector("#game-question-ul").innerText = ""
+            document.querySelector("#game-question-ul").innerText = ""
             document.querySelector("#points").innerText= "0 Points"
             changeButtons()
             populateQuestion()

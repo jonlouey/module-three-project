@@ -16,6 +16,7 @@ h1 {
   text-align: center;
   color: white;
   font-size: 2em;
+;
   }
 
 p {
@@ -40,6 +41,18 @@ p {
   min-width: 860px;
 }
 
+#page-title {
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  float: left;
+  width: 70%
+  }
+
+#game-out-container {
+  float: right;
+  width: 30%;
+}
 
 h3 {
   text-align: center;
@@ -147,9 +160,9 @@ h3 {
     margin: 8px 0;
     border: none;
 }
-#user-name-submit{
+/* #user-name-submit{
     display: none;
-}
+} */
 
 #user-submit{
   display: none;
@@ -199,9 +212,18 @@ h3 {
 
 #game-start {
   width: 200px;
-  height: 30px
+  height: 30px;
+  margin-top: 3%; 
 }
 
 #game-start {
+  width: 200px;
+  height: 30px;
   margin-top: 3%; 
+}
+
+#game-out {
+  width: 100px;
+  height: 30px;
+  margin-top: 10%; 
 }
