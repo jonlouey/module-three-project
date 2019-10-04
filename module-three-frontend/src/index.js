@@ -32,7 +32,7 @@ function renderGame(){
     <div id="game-title">
     <h1 id="page-title">So, you think you are smart?</h1>
     <div id=game-out-container>
-    <button id="game-out" type="button" onClick="window.location.reload();">End Game</button>
+    <button id="game-out" type="button" onClick="window.location.reload();">New User</button>
     </div>
     </div>
     <div id="game-card">
@@ -134,8 +134,11 @@ function gameAction() {
                 document.querySelector("#user-input").value = ""
                 incrementPoints()
             } else {
-                alert("Your answer is not a capital.")
+                document.querySelector("#user-input").classList.add("apply-shake")
                 document.querySelector("#user-input").value = ""
+                document.querySelector("#user-input").addEventListener("animationend", (e) => {
+                    document.querySelector("#user-input").classList.remove("apply-shake");
+                });
             }
         }
     })
